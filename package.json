@@ -1,0 +1,7 @@
+{
+  "author": "Bin Shen <shenbin04@gmail.com>",
+  "name": "zero",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": ["javascript/*"]
+}
