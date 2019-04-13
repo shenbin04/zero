@@ -3,5 +3,10 @@
   "name": "zero",
   "private": true,
   "version": "1.0.0",
-  "workspaces": ["javascript/*"]
+  "workspaces": ["javascript/*"],
+  "scripts": {
+  },
+  "devDependencies": {
+    "lerna": "3.13.2"
+  }
 }
