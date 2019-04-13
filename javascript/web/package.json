@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --open --config ../dev/webpack.dev.js",
-    "build": "webpack --config ../dev/webpack.prod.js"
+    "start": "webpack-dev-server --open --dev",
+    "build": "webpack",
+    "debug": "webpack --debug"
   },
   "dependencies": {
     "react": "16.8.3",
