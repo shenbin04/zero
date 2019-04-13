@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "workspaces": ["javascript/*"],
   "scripts": {
+    "clean": "./clean.sh"
   },
   "devDependencies": {
     "lerna": "3.13.2"
