@@ -8,11 +8,10 @@
 const path = require('path')
 
 module.exports = {
-  extraNodeModules: {
-    '@babel': path.resolve(__dirname, '../../node_modules/@babel'),
-  },
+  extraNodeModules: {},
   watchFolders: [
-    path.resolve(__dirname, "../../node_modules"),
+    path.resolve(__dirname, '../../node_modules'),
+    path.resolve(__dirname, '../'),
   ],
   transformer: {
     getTransformOptions: async () => ({
