@@ -9,10 +9,7 @@ const path = require('path')
 
 module.exports = {
   extraNodeModules: {},
-  watchFolders: [
-    path.resolve(__dirname, '../../node_modules'),
-    path.resolve(__dirname, '../'),
-  ],
+  watchFolders: [path.resolve(__dirname, '../../node_modules'), path.resolve(__dirname, '../')],
   transformer: {
     getTransformOptions: async () => ({
       transform: {

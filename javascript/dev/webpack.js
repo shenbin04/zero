@@ -1,16 +1,14 @@
-const path = require('path');
-const webpack = require('webpack');
-const merge = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const path = require('path')
+const webpack = require('webpack')
+const merge = require('webpack-merge')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
-const dev = process.argv.indexOf('--dev') > -1;
-const debug = process.argv.indexOf('--debug') > -1;
+const dev = process.argv.indexOf('--dev') > -1
+const debug = process.argv.indexOf('--debug') > -1
 
-const getWebpackConfig = ({
-  root,
-}) => {
+const getWebpackConfig = ({root}) => {
   let config = {
     entry: {
       app: './src/index.js',
@@ -36,7 +34,7 @@ const getWebpackConfig = ({
       filename: '[name].bundle.js',
       path: path.resolve(root, 'dist'),
     },
-  };
+  }
 
   if (dev) {
     config = merge(config, {
@@ -47,22 +45,20 @@ const getWebpackConfig = ({
         hot: true,
       },
       plugins: [new webpack.HotModuleReplacementPlugin()],
-    });
+    })
   } else {
     config = merge(config, {
       mode: 'production',
-    });
+    })
   }
 
   if (debug) {
     config = merge(config, {
-      plugins: [
-        new BundleAnalyzerPlugin(),
-      ],
-    });
+      plugins: [new BundleAnalyzerPlugin()],
+    })
   }
 
-  return config;
+  return config
 }
 
 module.exports = {
