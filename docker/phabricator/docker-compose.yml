@@ -1,0 +1,36 @@
+version: '2'
+services:
+  mariadb:
+    image: 'bitnami/mariadb:10.2'
+    ports:
+      - '3306:3306'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      # - MARIADB_USER=phabricator
+      # - MARIADB_PASSWORD=phabricator
+      # - MARIADB_ROOT_PASSWORD=root
+      # - MARIADB_HOST=mariadb
+    volumes:
+      - 'mariadb_data:/bitnami'
+  phabricator:
+    image: 'shenbin04/phabricator:latest'
+    ports:
+      - '80:80'
+      - '443:443'
+      - '2222:2222'
+    environment:
+      # - PHABRICATOR_HOST=phabricator.bin.com
+      - PHABRICATOR_USERNAME=bin
+      - PHABRICATOR_PASSWORD=sb111111
+      - PHABRICATOR_EMAIL=shenbin04@gmail.com
+      - PHABRICATOR_FIRSTNAME=Bin
+      - PHABRICATOR_LASTNAME=Shen
+    volumes:
+      - 'phabricator_data:/bitnami'
+    depends_on:
+      - mariadb
+volumes:
+  mariadb_data:
+    driver: local
+  phabricator_data:
+    driver: local
