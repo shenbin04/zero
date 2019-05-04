@@ -1,0 +1,12 @@
+{
+  "name": "hackernews",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon --exec babel-node src/index.js"
+  },
+  "dependencies": {
+    "dev": "0.1.0",
+    "graphql-yoga": "1.17.4"
+  }
+}
