@@ -1,0 +1,16 @@
+AuthorizedKeysCommand /opt/bitnami/phabricator-ssh-hook.sh
+AuthorizedKeysCommandUser git
+AllowUsers git
+
+Port 2222
+Protocol 2
+PermitRootLogin no
+AllowAgentForwarding no
+AllowTcpForwarding no
+PrintMotd no
+PrintLastLog no
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+AuthorizedKeysFile none
+
+PidFile /var/run/sshd-phabricator.pid

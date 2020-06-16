@@ -1,31 +1,50 @@
-import React, {Component} from 'react'
+import React, {Component, useEffect, useMemo, useState} from 'react'
 import {hello as helloIndex} from 'shared'
 import {hello} from 'shared/hello'
 // import logo from './logo.svg';
 // import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className='App'>
-        <header className='App-header'>
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <p>{helloIndex()}</p>
-          <p>{hello()}</p>
-          <a
-            className='App-link'
-            href='https://reactjs.org'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    )
-  }
+const defaultValue = {}
+
+let v = null
+let setV = null
+
+function Example() {
+  const [value, setValue] = useValue()
+
+  console.log('=========rendering Example: ', value, v, value === v)
+  console.log('=========rendering Example2: ', setValue === setV)
+
+  v = value
+
+  setV = setValue
+
+  return <div>{JSON.stringify(value)}</div>
+}
+
+function useValue() {
+  const [value, setValue] = useState(defaultValue)
+
+  useEffect(() => {
+    setInterval(() => {
+      setValue({random: Math.random()})
+    }, 10000)
+  }, [])
+
+  return [value]
+}
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    setInterval(() => {
+      setCount((count) => count + 1)
+    }, 1000)
+  }, [])
+
+  console.log('=================rendering App: ', count)
+  return <Example />
 }
 
 export default App
